@@ -113,7 +113,7 @@ def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene):
 	results = pd.concat(frames)
 	results = results.replace(np.nan, 0)
 	#print(results)
-	sns.heatmap(results, annot=False)
+	sns.heatmap(results, annot=False, xticklabels=1, linewidths=1, linecolor='black')
 	plt.show()
 
 
