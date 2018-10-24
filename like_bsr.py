@@ -64,7 +64,7 @@ def extract_bsr_reference(data_base,cores):
 	bsr_ref = []   # blast score ratio of reference 
 	length_ref = [] 
 
-	file = subprocess.check_output("blastn -db %s -query %s -outfmt 6 -num_alignments 5 -perc_identity 100 -qcov_hsp_perc 100 -num_threads %d"%(data_base,data_base,int(cores)),shell=True, encoding="utf-8")
+	file = subprocess.check_output("blastn -db %s -query %s -outfmt 6 -num_alignments 5 -perc_identity 100 -qcov_hsp_perc 100 -num_threads %d"%(data_base,data_base,int(cores)),shell=True).decode("utf-8")
 
 	bsr = file.split("\n")
 
