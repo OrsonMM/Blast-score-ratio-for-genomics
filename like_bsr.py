@@ -2,16 +2,20 @@
 
 # Author B10Comp - Orson Mestanza 
 # These script find genes in draft assembly genomes and return a Matrix with Blast score ratio for each gene in your multifasta
-# You need Python3
+# You need Python2
 # You need BLAST install in your environment 
 # You need Prodigal install in your environment
 # You need Pandas python
-import pandas as pd
+
 import sys
 import os
 import operator
+import numpy as np
+import seaborn as sns
+import pandas as pd
 import shlex, subprocess
 
+import matplotlib.pyplot as plt
 
 def funcion_makeblast(multifasta):
 
@@ -102,12 +106,15 @@ def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene):
 
 				
 				df = pd.DataFrame(index, index=[nombres], columns=order_gene)
-				#print(df) 			
+				print(df) 			
 				frames.append(df) 
 				index = {}
 
 	results = pd.concat(frames)
-	print(results)
+	results = results.replace(np.nan, 0)
+	#print(results)
+	sns.heatmap(results, annot=False)
+	plt.show()
 
 
 def main():
