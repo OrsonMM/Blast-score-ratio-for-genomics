@@ -18,10 +18,10 @@ Multifasta_for_DB = A file multifasta with genes of your interest.
 
 Example multifasta:
 
->gen1
-ctagctagcta
->gen2
-ctgctag
->gen3
-ctagctacgta
+%>gen1
+%ctagctagcta
+%>gen2
+%ctgctag
+%>gen3
+%ctagctacgta
 
