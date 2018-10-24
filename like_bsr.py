@@ -133,3 +133,10 @@ def main():
 
 if __name__ == "__main__":
 	main()
+
+
+#Some problems that you can solve in the future 
+# 1. For example the genes is not in the same position to reference.
+# 2. Is necessary plot a heatmap with these data in near future.
+
+	
