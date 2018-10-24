@@ -2,7 +2,7 @@
 
 # Author B10Comp - Orson Mestanza 
 # These script find genes in draft assembly genomes and return a Matrix with Blast score ratio for each gene in your multifasta
-# You need Python2
+# You need Python3
 # You need BLAST install in your environment 
 # You need Prodigal install in your environment
 # You need Pandas python
