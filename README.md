@@ -1,6 +1,6 @@
 # Find_Island_genes
 
-These script find genes in draft assembly genomes and return a Matrix.csv with Blast score ratio for each gene in your multifasta
+These script find genes in draft assembly genomes and return a Matrix.csv with Blast score ratio for each gene in your multifasta"\n"
 
 Usage:
         python like_bsr.py dir_DraftGenomes Multifasta_for_DB
