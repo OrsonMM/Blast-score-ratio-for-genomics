@@ -14,6 +14,3 @@ dir_DraftGenomes = Directory with your draft genomes or complete genomes
 
 Multifasta_for_DB = A file multifasta with genes of your interest. check - dir_multifasta 
 
-
-
-
