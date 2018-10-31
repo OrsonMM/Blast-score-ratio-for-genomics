@@ -1,11 +1,11 @@
-#usr/bin/python
+#usr/bin/python3
 
 # Author B10Comp - Orson Mestanza 
 # These script find genes in draft assembly genomes and return a Matrix with Blast score ratio for each gene in your multifasta
-# You need Python2
+# You need Python3
 # You need BLAST install in your environment 
 # You need Prodigal install in your environment
-# You need Pandas python
+# You need Pandas,seaborn, numpy install in python3
 
 import sys
 import os
@@ -14,7 +14,6 @@ import numpy as np
 import seaborn as sns
 import pandas as pd
 import shlex, subprocess
-
 import matplotlib.pyplot as plt
 
 def funcion_makeblast(multifasta):
@@ -64,7 +63,7 @@ def extract_bsr_reference(data_base,cores):
 	bsr_ref = []   # blast score ratio of reference 
 	length_ref = [] 
 
-	file = subprocess.check_output("blastn -db %s -query %s -outfmt 6 -num_alignments 5 -perc_identity 100 -qcov_hsp_perc 100 -num_threads %d"%(data_base,data_base,int(cores)),shell=True).decode("utf-8")
+	file = subprocess.check_output("blastn -db %s -query %s -outfmt 6 -num_alignments 5 -perc_identity 100 -qcov_hsp_perc 100 -num_threads %d"%(data_base,data_base,int(cores)),shell=True).decode("utf-8") #, encoding="utf-8"
 
 	bsr = file.split("\n")
 
@@ -78,7 +77,7 @@ def extract_bsr_reference(data_base,cores):
 
 	return order_ref, bsr_ref, length_ref
 
-def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene):
+def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene,output):
 
 
 	#df1 = pd.DataFrame(columns=order_gene)
@@ -113,9 +112,9 @@ def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene):
 	results = pd.concat(frames)
 	results = results.replace(np.nan, 0)
 	
-	results.to_csv("result_Dataframe.txt", sep='\t', encoding='utf-8')
+	results.to_csv("%s.tab"%output, sep='\t', encoding='utf-8')
 	#print(results)
-	#sns.heatmap(results, annot=False, xticklabels=1, linewidths=1, linecolor='black')
+	#sns.heatmap(results, annot=False, xticklabels=1, linewidths=1, linecolor='white')
 	#plt.show()
 
 
@@ -128,6 +127,7 @@ def main():
 	genomes = sys.argv[1]
 	data_base = sys.argv[2]
 	cores = sys.argv[3]
+	output = sys.argv[4]
 
 	
 	funcion_makeblast(data_base)           # These function do makeblastdb with multifasta input 
@@ -138,7 +138,7 @@ def main():
 
 	order_gen, bsr_gen, len_gen = extract_bsr_reference(data_base,cores) # These function return two arrays. 1. Is array with order of genes of reference. 2 is array with blast score ratio for each gene 3. Is array with the length of each gene. 
 
-	do_matrix_bsr(nucle_files,order_gen,bsr_gen,len_gen)
+	do_matrix_bsr(nucle_files,order_gen,bsr_gen,len_gen,output)
 
 if __name__ == "__main__":
 	main()
@@ -147,5 +147,3 @@ if __name__ == "__main__":
 #Some problems that you can solve in the future 
 # 1. For example the genes is not in the same position to reference.
 # 2. Is necessary plot a heatmap with these data in near future.
-
-	
