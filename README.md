@@ -5,7 +5,7 @@ These script find genomic islands (GIs) that may play a role in the emergence an
 Usage:
 
 
-        python3 like_bsr.py dir_DraftGenomes Multifasta_for_DB/*fasta #cores name_output
+        $ python3 like_bsr.py dir_DraftGenomes Multifasta_for_DB/*fasta #cores name_output
         
   
 dir_DraftGenomes = Directory with your draft genomes or complete genomes
