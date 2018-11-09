@@ -95,11 +95,11 @@ def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene,output):
 				for line in f:
 					line = line.split("\t")
 					if not line[1] in index:
-						if float(line[3])/len_gene[order_gene.index(line[1])]*100 > 70:  # Si el alineamiento entre la query y el subjet es mas del 60%
+						if float(line[3])/len_gene[order_gene.index(line[1])]*100 > 90:  # Si el alineamiento entre la query y el subjet es mas del 60%
 							new = line[1]
 							index[new] = float(line[11])/float(bsr_gene[order_gene.index(line[1])])
 					else:
-						if float(line[3])/len_gene[order_gene.index(line[1])]*100 > 70:
+						if float(line[3])/len_gene[order_gene.index(line[1])]*100 > 90:
 							if index[line[1]] < float(line[11])/float(bsr_gene[order_gene.index(line[1])]):
 								index[line[1]] = float(line[11])/float(bsr_gene[order_gene.index(line[1])])
 
