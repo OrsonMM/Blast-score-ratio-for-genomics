@@ -1,7 +1,9 @@
-# Like Blast Score Ratio
+# Like Blast Score Ratio (BSR)
 # Find_Genomic_Islands for Vibrio parahaemolyticus 
 
 These script find genomic islands (GIs) that may play a role in the emergence and pathogenesis of pandemic strains. Predicted Genes with prodigal in draft assembly genomes and return a Matrix.tab with Blast score ratio for each gene in your draft genome.
+
+The concept of the BSR you can review these paper (https://www.ncbi.nlm.nih.gov/pmc/articles/PMC545078/) 
 
 Usage:
 
