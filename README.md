@@ -1,4 +1,5 @@
-# Find_Genomic_Island_7 for Vibrio parahaemolyticus
+# Like Blast Score Ratio
+# Find_Genomic_Islands for Vibrio parahaemolyticus 
 
 These script find genomic islands (GIs) that may play a role in the emergence and pathogenesis of pandemic strains. Predicted Genes with prodigal in draft assembly genomes and return a Matrix.tab with Blast score ratio for each gene in your draft genome.
 
