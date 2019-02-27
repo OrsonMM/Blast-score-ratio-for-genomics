@@ -105,6 +105,7 @@ def do_matrix_bsr(blastn_files,order_gene,bsr_gene,len_gene,output):
 
 				
 				df = pd.DataFrame(index, index=[nombres], columns=order_gene)
+				df = df.dropna(axis=1)
 				print(df) 			
 				frames.append(df) 
 				index = {}
